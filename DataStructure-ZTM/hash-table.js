@@ -49,3 +49,50 @@ hashMap.set("Raan", 6249008);
 console.log(hashMap.data);
 
 console.log(hashMap.get("Raan"));
+
+// Google question
+// find first recurring item in array
+//Given an array = [2,5,1,2,3,5,1,2,4]:
+//It should return 2
+
+//Given an array = [2,1,1,2,3,5,1,2,4]:
+//It should return 1
+
+//Given an array = [2,3,4,5]:
+//It should return undefined
+// naive approach
+
+function findFirstRecurringItem(arr) {
+  let recurringItem = undefined;
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] === arr[j]) {
+        return arr[i];
+      }
+    }
+  }
+
+  return recurringItem;
+}
+
+const arr = [2, 3, 4, 5];
+
+console.log(findFirstRecurringItem(arr));
+// But there is problem with this solution
+// it is giving ans 1, but correct ans is 3. it is happening because for every element, we running another loop till the end of array.
+
+/// Lets solve with hash table.
+
+function findFirstRecurringItemWithHashTbl(arr) {
+  let hashMap = {};
+  for (let index = 0; index < arr.length; index++) {
+    if (hashMap[arr[index]]) {
+      return arr[index];
+    }
+    hashMap[arr[index]] = true;
+  }
+  return undefined;
+}
+
+console.log(findFirstRecurringItemWithHashTbl(arr));
