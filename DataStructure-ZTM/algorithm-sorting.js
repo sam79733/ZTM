@@ -49,4 +49,5 @@ function merge(left, right) {
   return result.concat(left.slice(i)).concat(right.slice(j));
 }
 
-console.log(MergeSort(numbers));
+// Check insertion sort
+// check quick sort
