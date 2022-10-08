@@ -4,6 +4,7 @@ import Header from "./Header";
 import Photowall from "./PhotoWall";
 import AddPhoto from "./AddPhotos";
 import { Route } from "react-router-dom";
+import Image from "./Image";
 
 class Main extends Component {
   constructor() {
@@ -28,15 +29,14 @@ class Main extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
+        <Header title={"Photowalls"} />
         <Route
           exact
           path="/"
           render={(params) => (
             <div>
-              <Header title={"Photowalls"} />
               <Photowall {...this.props} />
             </div>
           )}
@@ -44,6 +44,11 @@ class Main extends Component {
         <Route
           path="/addPhoto"
           render={(params) => <AddPhoto {...this.props} {...params} />}
+        />
+
+        <Route
+          path="/image/:id"
+          render={(params) => <Image {...this.props} {...params} />}
         />
       </div>
     );

@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Photo extends Component {
   render() {
     const { post, index } = this.props;
     return (
       <figure>
-        <img className="photo" src={post.url} alt={post.desc} />
+        <Link to={`image/${post.id}`}>
+          <img className="photo" src={post.url} alt={post.desc} />
+        </Link>
         <figcaption>
           <p>{post.desc}</p>
         </figcaption>

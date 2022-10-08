@@ -31,7 +31,6 @@ class AddPhoto extends Component {
   render() {
     return (
       <div>
-        <Header title={"Photowalls"}></Header>
         <div className="form">
           <form onSubmit={this.addPost}>
             <input type="text" placeholder="Link" name="Link" />
